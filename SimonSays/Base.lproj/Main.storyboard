@@ -50,7 +50,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Simon Says" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lAt-dI-C2K">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Simon Says" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lAt-dI-C2K">
                                 <rect key="frame" x="16" y="345.5" width="343" height="234.5"/>
                                 <color key="backgroundColor" white="1" alpha="0.25128424657534248" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="50"/>
@@ -66,6 +66,9 @@
                                 <state key="normal" title="Start Game">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="startGameBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aXq-CE-g1P"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -94,6 +97,12 @@
                             <constraint firstItem="uLf-hL-yrb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xOM-x3-zfy"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="scoreLabel" destination="WWX-29-tCa" id="YkS-Ja-90G"/>
+                        <outlet property="simonSaysLabel" destination="lAt-dI-C2K" id="atO-R8-TyI"/>
+                        <outlet property="startGameBtn" destination="aP9-yc-srK" id="x6C-ch-jKh"/>
+                        <outlet property="timeLabel" destination="mnN-SF-mVb" id="bOK-8I-9ij"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
