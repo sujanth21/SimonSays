@@ -25,6 +25,22 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         simonSaysLabel.layer.cornerRadius = 5
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipeGesture(sender:)))
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeGesture(sender:)))
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipeGesture(sender:)))
+        swipeUp.direction = UISwipeGestureRecognizerDirection.up
+        self.view.addGestureRecognizer(swipeUp)
+        
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(swipeGesture(sender:)))
+        swipeDown.direction = UISwipeGestureRecognizerDirection.down
+        self.view.addGestureRecognizer(swipeDown)
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,6 +54,19 @@ class ViewController: UIViewController {
             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
             
             self.updateSimon()
+            
+            gameInt = 1
+            
+            startGameBtn.isEnabled = false
+            startGameBtn.alpha = 0.25
+        } else if timeInt == 0 {
+            timeInt = 20
+            scoreInt = 0
+            
+            timeLabel.text = "Time: \(timeInt)"
+            scoreLabel.text = "Score: \(scoreInt)"
+            
+            startGameBtn.setTitle("Start Game", for: .normal)
         }
     }
     
@@ -50,6 +79,13 @@ class ViewController: UIViewController {
             simonTimer.invalidate()
             
             simonSaysLabel.text = "Game Over"
+            
+            gameInt = 0
+            
+            startGameBtn.isEnabled = true
+            startGameBtn.alpha = 1.0
+            
+            startGameBtn.setTitle("Restart Game", for: .normal)
         }
     }
     
@@ -68,6 +104,66 @@ class ViewController: UIViewController {
         simonSaysLabel.text = array[randomWord]
         
         simonTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateSimon), userInfo: nil, repeats: false)
+    }
+    
+    @objc func swipeGesture(sender: UISwipeGestureRecognizer) {
+        
+        if gameInt == 1 {
+            
+            if sender.direction == .right {
+                simonTimer.invalidate()
+                if simonSaysLabel.text == "Simon Says Swipe Right" {
+                    scoreInt += 1
+                    scoreLabel.text = "Score: \(scoreInt)"
+                    
+                    self.updateSimon()
+                } else {
+                    scoreInt -= 1
+                    scoreLabel.text = "Score: \(scoreInt)"
+                    
+                    self.updateSimon()
+                }
+            } else if sender.direction == .left {
+                simonTimer.invalidate()
+                if simonSaysLabel.text == "Simon Says Swipe Left" {
+                    scoreInt += 1
+                    scoreLabel.text = "Score: \(scoreInt)"
+                    
+                    self.updateSimon()
+                } else {
+                    scoreInt -= 1
+                    scoreLabel.text = "Score: \(scoreInt)"
+                    
+                    self.updateSimon()
+                }
+            } else if sender.direction == .up {
+                simonTimer.invalidate()
+                if simonSaysLabel.text == "Simon Says Swipe Up" {
+                    scoreInt += 1
+                    scoreLabel.text = "Score: \(scoreInt)"
+                    
+                    self.updateSimon()
+                } else {
+                    scoreInt -= 1
+                    scoreLabel.text = "Score: \(scoreInt)"
+                    
+                    self.updateSimon()
+                }
+            } else if sender.direction == .down {
+                simonTimer.invalidate()
+                if simonSaysLabel.text == "Simon Says Swipe Down" {
+                    scoreInt += 1
+                    scoreLabel.text = "Score: \(scoreInt)"
+                    
+                    self.updateSimon()
+                } else {
+                    scoreInt -= 1
+                    scoreLabel.text = "Score: \(scoreInt)"
+                    
+                    self.updateSimon()
+                }
+            }
+        }
     }
     
 }
