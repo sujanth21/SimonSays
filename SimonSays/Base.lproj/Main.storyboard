@@ -1,14 +1,23 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.19" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.16"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-DemiBold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SimonSays" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +25,83 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="uLf-hL-yrb">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SimonSays" translatesAutoresizingMaskIntoConstraints="NO" id="wqm-qI-bY7">
+                                <rect key="frame" x="16" y="20" width="343" height="234.5"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time: 20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnN-SF-mVb">
+                                <rect key="frame" x="16" y="271.5" width="164" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="dws-bh-qXr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WWX-29-tCa">
+                                <rect key="frame" x="195" y="271.5" width="164" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="uvi-5c-X8t"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Simon Says" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lAt-dI-C2K">
+                                <rect key="frame" x="16" y="345.5" width="343" height="234.5"/>
+                                <color key="backgroundColor" white="1" alpha="0.25128424657534248" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="50"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aP9-yc-srK">
+                                <rect key="frame" x="16" y="595" width="343" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="hnn-aj-Nc2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="25"/>
+                                <state key="normal" title="Start Game">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="aP9-yc-srK" secondAttribute="bottom" constant="20" id="6Kb-Db-EDD"/>
+                            <constraint firstItem="WWX-29-tCa" firstAttribute="top" secondItem="wqm-qI-bY7" secondAttribute="bottom" constant="17" id="9aM-Ax-2r2"/>
+                            <constraint firstItem="lAt-dI-C2K" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="AC7-Dj-76Y"/>
+                            <constraint firstItem="lAt-dI-C2K" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="ACU-zL-EW5"/>
+                            <constraint firstItem="aP9-yc-srK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="BVS-H8-wpy"/>
+                            <constraint firstItem="lAt-dI-C2K" firstAttribute="top" secondItem="mnN-SF-mVb" secondAttribute="bottom" constant="18" id="BcO-9z-Xjp"/>
+                            <constraint firstItem="aP9-yc-srK" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Ey3-UQ-uDc"/>
+                            <constraint firstItem="aP9-yc-srK" firstAttribute="top" secondItem="lAt-dI-C2K" secondAttribute="bottom" constant="15" id="L74-eA-ECz"/>
+                            <constraint firstItem="wqm-qI-bY7" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="LrW-Gr-L6S"/>
+                            <constraint firstItem="WWX-29-tCa" firstAttribute="leading" secondItem="mnN-SF-mVb" secondAttribute="trailing" constant="15" id="PUD-wt-fnm"/>
+                            <constraint firstItem="mnN-SF-mVb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Swi-S1-6hM"/>
+                            <constraint firstAttribute="trailing" secondItem="uLf-hL-yrb" secondAttribute="trailing" id="W7C-n0-qyT"/>
+                            <constraint firstItem="wqm-qI-bY7" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="YGe-ch-n0R"/>
+                            <constraint firstItem="lAt-dI-C2K" firstAttribute="height" secondItem="wqm-qI-bY7" secondAttribute="height" id="ZA2-oZ-5sj"/>
+                            <constraint firstItem="uLf-hL-yrb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ar8-ij-yXV"/>
+                            <constraint firstItem="lAt-dI-C2K" firstAttribute="top" secondItem="WWX-29-tCa" secondAttribute="bottom" constant="18" id="e6J-oS-r9K"/>
+                            <constraint firstItem="mnN-SF-mVb" firstAttribute="top" secondItem="wqm-qI-bY7" secondAttribute="bottom" constant="17" id="hA2-m6-oq2"/>
+                            <constraint firstItem="WWX-29-tCa" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="j6e-ze-MFA"/>
+                            <constraint firstItem="wqm-qI-bY7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="jvO-vh-hTH"/>
+                            <constraint firstItem="WWX-29-tCa" firstAttribute="width" secondItem="mnN-SF-mVb" secondAttribute="width" id="lFS-eo-RHI"/>
+                            <constraint firstAttribute="bottom" secondItem="uLf-hL-yrb" secondAttribute="bottom" id="sFy-3X-CdH"/>
+                            <constraint firstItem="uLf-hL-yrb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xOM-x3-zfy"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="SimonSays" width="1000" height="707"/>
+        <image name="background" width="1440" height="900"/>
+    </resources>
 </document>
